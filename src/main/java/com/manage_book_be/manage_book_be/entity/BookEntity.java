@@ -20,6 +20,10 @@ public class BookEntity {
     private AuthorEntity author;
 
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name = "order_id", nullable = true)
+    private OrderEntity order;
+
     public BookEntity() {
     }
 
