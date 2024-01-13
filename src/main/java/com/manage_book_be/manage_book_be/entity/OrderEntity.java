@@ -3,10 +3,11 @@ package com.manage_book_be.manage_book_be.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "order")
+@Table(name = "_order")
 public class OrderEntity {
 
     @Id
@@ -25,12 +26,12 @@ public class OrderEntity {
     private LocalDate dayRecive;
 
     @OneToMany(mappedBy = "order" , fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<BookEntity> booksOrder;
+    private List<BookEntity> booksOrder;
 
     public OrderEntity() {
     }
 
-    public OrderEntity(int id, String addressUser, double total, LocalDate dayOrder, LocalDate dayRecive, Set<BookEntity> booksOrder) {
+    public OrderEntity(int id, String addressUser, double total, LocalDate dayOrder, LocalDate dayRecive, List<BookEntity> booksOrder) {
         this.id = id;
         this.addressUser = addressUser;
         this.total = total;
@@ -79,11 +80,11 @@ public class OrderEntity {
         this.dayRecive = dayRecive;
     }
 
-    public Set<BookEntity> getBooksOrder() {
+    public List<BookEntity> getBooksOrder() {
         return booksOrder;
     }
 
-    public void setBooksOrder(Set<BookEntity> booksOrder) {
+    public void setBooksOrder(List<BookEntity> booksOrder) {
         this.booksOrder = booksOrder;
     }
 }

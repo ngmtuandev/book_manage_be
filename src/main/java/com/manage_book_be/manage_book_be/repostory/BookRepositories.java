@@ -9,5 +9,7 @@ import java.util.List;
 @Repository
 public interface BookRepositories extends JpaRepository<BookEntity, Integer> {
     List<BookEntity> findByName(String name);
+
+//    BookEntity findByName(String name);
     List<BookEntity> findByAuthorId(int authorID);
 }
